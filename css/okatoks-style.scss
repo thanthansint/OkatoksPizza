@@ -1,0 +1,510 @@
+@import "_colors";
+
+@mixin grid-layout($width) {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    width: $width;
+}
+@mixin font-setting($fontsize, $font) {
+    font-size: $fontsize;
+    font-family: $font;
+}
+@mixin width-height($w, $h) {
+    width: $w;
+    height: $h;
+}
+@mixin adjust-center($dis, $left, $right, $top, $bottom) {
+  display: $dis;
+  margin-left: $left;
+  margin-right: $right;
+  margin-top: $top;
+  margin-bottom: $bottom;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .page-container {
+      width: 100%;
+      display: grid;
+      grid-template-rows: minmax(10vh,auto) minmax(70vh, auto) minmax(10vh, auto);
+      grid-template-columns: 1fr;
+  } 
+  .heading-container{    
+    @include grid-layout(100%);     
+    grid-template-rows: minmax(10vh, auto) minmax(5vh, auto);
+    grid-template-columns: 1fr;         
+    background-color: $header-background-color; 
+    position: sticky;
+    top: -17vh;  
+    z-index: 3;
+  }
+  .logo-frame {
+    width: 100%;     
+  }
+  .logo {
+    width: 8%;   
+    @include adjust-center(block, auto, auto, 5px, 1px);       
+  }
+  .toggle-heading {
+    width: 100%;
+    background: #D10000; 
+    display: grid;      
+    grid-template-columns: repeat(auto-fill, minmax(22vw, 1fr));   
+    justify-items: center;
+    align-items: center;        
+  }   
+  .menu {
+    color: #ffff;   
+    padding-left: 5%;
+    padding-right:7%; 
+    padding-top: 10px; 
+    padding-bottom: 10px;   
+  }
+  .toggle-heading a:hover {
+   background: $hover-color;
+   padding: 20px;
+  }  
+  .menu-title{    
+    text-decoration: none;
+    color: $font-border-color;
+    font-size: 1.1em; 
+    font-family: $font;
+    font-weight: bold; 
+    
+  }   
+  .phone-title {
+    text-decoration: none;
+    color: $font-border-color;
+    font-size: 1.2em;  
+    font-weight: bold;
+  } 
+  .content {
+    width: 100%;
+    display: grid;
+    grid-template-rows: repeat(auto-fill, minmax(10vh, 1fr));
+    grid-template-columns: 1fr;     
+  }    
+  .message {
+    width: 80%;
+    position: absolute;
+    top: 9%;
+    left: 13%;   
+    font-size: 2.5em;
+    color: $hover-color;
+    font-family: $font;
+    font-weight: bolder; 
+    text-align: center;   
+  }
+  .italian-message {
+    font-size: 1.2em;
+    color: $body-color;  
+    z-index: 2;
+  }
+  .here-message {
+    font-size: 2em;
+    color: $text-color;
+    padding: 1%;
+    background-color: $font-border-color;
+    border-radius: 20px;
+    margin-top: 10%;
+  }
+  .image {
+    @include adjust-center(block, 0, 0, 0, 1%);
+    position: relative;
+    z-index: 1;
+  }
+  .image-size {
+    width: 100%;
+  }    
+  .order {    
+    width: 100%;  
+    padding-top: 5%;   
+    padding-bottom: 5%;
+  }   
+  .order-now {   
+    color: $body-color;     
+    font-size: 1.8em; 
+    font-weight: bold; 
+    font-family: $font;
+    padding-top: 10px; 
+    text-align: center;    
+    @include adjust-center(inline-block, 20%, 0, 2%, 2%);             
+  }  
+  .fa-hand-point-right {
+    font-size: 50px;
+    margin-right: 7%;
+  }
+  .fa-hand-point-down {
+    font-size: 40px;
+    visibility: hidden;
+  }
+  .delivery {  
+    @include adjust-center(inline-block, 3%, 0, 2%, 2%);            
+    text-decoration: none;  
+    text-align: center; 
+    width: 15%;
+    background: $body-color;
+    font-size: 1.5em;
+    font-family: $font;
+    font-weight: bold;
+    border: 1px solid $font-border-color;
+    border-radius: 25px;
+    padding: 15px;          
+    color: $font-border-color;
+  }  
+  .video {
+    width: 70%; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 60vh;
+    object-fit: cover;
+  }  
+  .video-link{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3%;
+    margin-top: 2%;
+    //background: $body-color;
+    border-radius: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    }
+  .video-link-text {
+    font-size: 2.2em;
+    font-family: $font;
+    color: $body-color; 
+    font-weight: bold;
+    text-decoration: none;   
+  }  
+  .background-image2 {
+    width: 100%;
+    background-image: url("../images/red-black-background-1.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;     
+  } 
+  .bunner {
+    width: 50%;
+    padding-bottom: 3%;
+    //background: $body-color;
+    border-bottom: 1px solid $body-color;
+    font-size: 1.5em;
+    color: $font-border-color;
+    text-align: center;
+    font-family: $font;
+    font-weight: bolder;
+    @include adjust-center(block, auto, auto, 3%, 2%); 
+  }    
+  .bunner4 {
+    width: 50%;
+    padding-bottom:3%;
+    font-size: 1.5em;
+    color: $font-border-color;
+    text-align: center;
+    font-family: $font;
+    font-weight: bolder;
+    @include adjust-center(block, auto, auto, 3%, 2%); 
+
+  }
+  .bunner-text {
+    width: 70%;
+    color: $font-border-color;
+    font-size: 1.5em;
+    //padding:2%;
+    text-align: center;
+    font-family: $font;
+    font-weight: bolder;
+    @include adjust-center(block, auto, auto, 1%, 3%);
+  }
+  .footer {
+    width: 100%;
+    font-size: 1.5em;
+    font-family: $font;
+    background: $body-color;
+    color: $font-border-color;
+    padding: 20px;
+    text-align: center;
+  }
+
+@media only screen and (max-width: 767px)
+{ 
+.heading-container {
+  grid-template-rows: minmax(10vh, auto) minmax(5vh, auto);
+  top: -10%;
+}
+.logo {
+  width: 20%; 
+  margin-top: 1%;
+  margin-bottom: 1%;  
+}
+.toggle-heading {
+  width: 100%;
+  display: block;  
+  background: none;   
+}
+.toggle-heading a:hover {
+  padding: 8px;
+ }
+.menu {
+  text-align: center;
+  margin: 1%;
+  background: $body-color;
+  padding: 5px;
+}
+.menu-title {
+  font-size: 1em;  
+}
+.desktoptel {
+  display: none;
+}
+.message {  
+  top: 0;   
+  font-size: 1em;
+  text-align: center;
+}
+.italian-message {
+  font-size: 1.4em;
+} 
+.image{
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+} 
+.image-size {
+  width: 100%;   
+}
+.order {
+  display: block;
+  margin-bottom: 2%;
+  margin-top: 2%;
+}
+.order-now {
+  font-size: 1.1em;
+  font-weight: bold;  
+  text-align: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  @include adjust-center(block, auto, auto, 0, 0);  
+}
+.fa-hand-point-right {
+  visibility: hidden;
+}
+.fa-hand-point-down {
+  font-size: 35px;
+  visibility: visible;
+  margin-left: 25%;
+  margin-bottom: 5%;
+}
+.delivery {  
+  font-size: 1.1em;
+  width: 40%;  
+  text-align: center;
+  @include adjust-center(block, auto, auto, 1%, 2%);  
+}
+.video {
+  @include adjust-center(block, auto, auto, 3%, 4%);  
+  width: 100%; 
+  padding-top: 0;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+.video-link {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.video-link-text {
+  font-size: 1.3em;
+}
+.bunner  {
+  width: 70%;
+  font-size: 1em;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+.bunner4 {  
+  font-size: 1em;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+.bunner-text {
+  width: 80%;
+  font-size: 1.1em;
+  margin-bottom: 10%;
+}
+.background-image { 
+  padding-top: 10%;
+  padding-bottom: 10%;  
+}
+.footer{
+  margin-top: 0;
+  font-size: 1.2em;
+}
+} 
+
+@media only screen and (min-width: 768px) and (max-width: 1023px)
+{ 
+  .heading-container {
+  top: -14%;
+  }
+  .logo {
+    width: 20%;     
+  }
+  .toggle-heading {
+    grid-template-columns: repeat(auto-fill, minmax(25vw, 1fr));   
+  }
+  .toggle-heading a:hover {
+    padding: 8px;
+   }
+  .menu-title {
+    font-size: 1.2em;
+  }
+  /*.phone-title {
+    font-size: 1.2em;
+  }*/
+  .desktoptel {
+    display: none;
+  }
+  .message {
+    width: 85%;
+    left: 3%;  
+    font-size: 2em;
+  }
+  .italian-message {
+   font-size: 1.5em;
+  } 
+  .video {
+    width: 80vw;
+    height: 40vh;
+    object-fit: cover;
+  }
+  .video-link {
+    width: 90vw;
+    height: 10vh;   
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .video-link-text {
+    font-size: 2em;
+  }
+.order {    
+  width: 100%;     
+}   
+.order-now {         
+  @include adjust-center(block, 3%, 0, 2%, 2%);             
+}  
+.fa-hand-point-right {
+  visibility: hidden;
+}
+.fa-hand-point-down {
+  font-size: 35px;
+  visibility: visible;
+  margin-left: 33%;
+  margin-bottom: 5%;
+}
+.bunner, .bunner4 {
+  width: 70%;
+  padding-top: 5%; 
+  padding-bottom: 5%;
+}
+.delivery {  
+  width: 23%;
+  //padding: 5%;
+  @include adjust-center(block, auto, auto, 2%, 2%);            
+}
+}
+@media only screen and (min-width:1024px) and (max-width: 1200px) {
+  .desktoptel {
+    display: none;
+  }    
+  .heading-container {
+    top: -17%;
+  } 
+  .toggle-heading {
+    grid-template-columns: repeat(auto-fill, minmax(25vw, 1fr));   
+  }
+  .toggle-heading a:hover {
+    padding: 8px;
+   } 
+  .logo {
+    width: 25%;
+  }
+  .menu-title {
+    font-size: 1.5em;
+  }
+  .phone-title {
+    font-size: 1.5em;
+  }
+  .message {
+    width: 85%;
+    left: 3%;  
+    font-size: 2em;
+  }
+  .italian-message {
+   font-size: 1.5em;
+  } 
+  .video {
+    width: 80vw;
+    height: 40vh;
+    object-fit: cover;
+  }
+  .video-link {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .video-link-text {
+    font-size: 2.5em;
+  }
+  .order {    
+    width: 100%;     
+  }   
+  .order-now {         
+    @include adjust-center(inline-block, 10%, 0, 2%, 2%);             
+  }  
+  .delivery {  
+    width: 23%;
+    //padding: 5%;
+    @include adjust-center(inline-block, 1%, 0, 2%, 2%);            
+  }
+  .bunner, .bunner4 {
+    padding-top: 5%; 
+    padding-bottom: 5%;
+  }
+  .footer{
+    font-size: 2em;
+  }
+}
+@media only screen and (min-width:1201px){
+  .mobiletel {
+    display: none;
+  }  
+  .heading-container {    
+    top: -17vh;
+  }
+  .toggle-heading {
+    grid-template-columns: repeat(auto-fill, minmax(22vw, 1fr));       
+  }
+  .logo {
+    width: 8%; 
+  }  
+  .menu-title {
+    font-size: 1.1em;
+  }
+  .phone-title {
+    font-size: 1.2em;
+  }
+  .footer-frame {
+    margin-top: 5%;  
+    //width: 100%;
+  }
+  .footer{
+    font-size: 1.8em;
+  }
+}
